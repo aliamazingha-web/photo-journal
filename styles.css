@@ -209,7 +209,7 @@ main { min-height: calc(100vh - 160px); }
   justify-items: start;
   gap: 8px;
   width: 100%;
-  margin: 0;
+  margin: 0 0 0 -4px;
   padding: 0;
 }
 .section-title-stack h2,
@@ -228,6 +228,10 @@ main { min-height: calc(100vh - 160px); }
   justify-self: end;
 }
 .section-heading > span { color: var(--muted); }
+.section-heading > .text-action {
+  padding-bottom: 10px;
+  border-bottom: 0;
+}
 .story-grid {
   display: grid;
   grid-template-columns: 1.05fr .75fr;
