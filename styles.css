@@ -324,7 +324,7 @@ main { min-height: calc(100vh - 160px); }
   align-items: end;
   gap: 40px;
   padding: 72px 0 60px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(17,17,17,.16);
 }
 .story-list {
   display: grid;
