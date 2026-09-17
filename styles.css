@@ -570,7 +570,17 @@ dialog::backdrop { background: rgba(31,33,30,.72); backdrop-filter: blur(5px); }
     align-items: center;
     width: 6.5em;
     justify-self: center;
+    border-bottom-color: transparent;
     text-align: left;
+    text-decoration: none;
+    text-underline-offset: 12px;
+    text-decoration-thickness: 1px;
+  }
+  .mobile-nav .nav-link:hover,
+  .mobile-nav .nav-link:focus-visible,
+  .mobile-nav .nav-link.is-active {
+    border-bottom-color: transparent;
+    text-decoration-line: underline;
   }
   .view { padding-bottom: 64px; }
   .issue-strip span:last-child { display: none; }
