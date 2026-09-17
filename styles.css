@@ -6,6 +6,7 @@
   --line: #b9b8ae;
   --sage: #6f7c72;
   --clay: #9a8473;
+  --brand-mark: #77786f;
   --white: #faf8f1;
   --display: "Songti SC", "STSong", "Noto Serif CJK SC", "SimSun", serif;
   --body: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
@@ -67,6 +68,7 @@ img { display: block; width: 100%; }
   padding: 0;
   border: 0;
   background: transparent;
+  color: var(--brand-mark);
   text-align: left;
 }
 .brand-cn {
@@ -372,7 +374,7 @@ main { min-height: calc(100vh - 160px); }
   justify-items: center;
   gap: clamp(4px, .6vw, 10px);
   padding-left: min(6vw, 80px);
-  color: #77786f;
+  color: var(--brand-mark);
 }
 .about-char {
   position: relative;
@@ -389,7 +391,7 @@ main { min-height: calc(100vh - 160px); }
   position: absolute;
   inset: 0;
   display: block;
-  color: #77786f !important;
+  color: var(--brand-mark) !important;
   transform-origin: center;
 }
 .about-char::before,
