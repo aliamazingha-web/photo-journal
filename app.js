@@ -73,9 +73,9 @@
     const filtered = state.archiveFilter === "all"
       ? DB.stories
       : DB.stories.filter((story) => story.category === state.archiveFilter);
-    $("#archiveList").innerHTML = filtered.map((story) => `
+    $("#archiveList").innerHTML = filtered.map((story, index) => `
       <button class="archive-item" data-open-story="${story.id}">
-        <span class="archive-year">${story.date.slice(0, 4)}</span>
+        <span class="archive-year">${String(index + 1).padStart(2, "0")}</span>
         <span class="archive-category">${escapeHTML(story.category)}</span>
         <span class="archive-title">${escapeHTML(story.title)}</span>
         <span class="archive-date">${escapeHTML(story.date)}</span>
