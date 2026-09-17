@@ -291,7 +291,14 @@
       menu.classList.remove("is-open");
       menuToggle.setAttribute("aria-expanded", "false");
     };
+    const openMobileMenu = () => {
+      menu.classList.add("is-open");
+      menuToggle.setAttribute("aria-expanded", "true");
+    };
 
+    menuToggle.addEventListener("pointerenter", (event) => {
+      if (event.pointerType === "mouse") openMobileMenu();
+    });
     menuToggle.addEventListener("click", () => {
       const open = menu.classList.toggle("is-open");
       menuToggle.setAttribute("aria-expanded", String(open));
