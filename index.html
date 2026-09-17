@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="个人影像刊物交互原型">
+  <title>余白｜个人影像刊物</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="mock.js" defer></script>
+  <script src="api.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="paper-noise" aria-hidden="true"></div>
+  <header class="site-header">
+    <button class="brand nav-link" data-view="index" aria-label="返回首页">
+      <span class="brand-cn">余白</span>
+      <span class="brand-en">YOHAKU PHOTO JOURNAL</span>
+    </button>
+    <nav class="desktop-nav" aria-label="主要导航">
+      <button class="nav-link is-active" data-view="index">首页</button>
+      <button class="nav-link" data-view="stories">摄影专题</button>
+      <button class="nav-link" data-view="notes">日常片段</button>
+      <button class="nav-link" data-view="archive">时间归档</button>
+      <button class="nav-link" data-view="about">关于我</button>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button" id="studioOpen" aria-label="打开发布台">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z"/></svg>
+      </button>
+      <button class="icon-button mobile-only" id="menuToggle" aria-label="打开菜单" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="移动端导航">
+    <button class="nav-link" data-view="index">首页</button>
+    <button class="nav-link" data-view="stories">摄影专题</button>
+    <button class="nav-link" data-view="notes">日常片段</button>
+    <button class="nav-link" data-view="archive">时间归档</button>
+    <button class="nav-link" data-view="about">关于我</button>
+  </nav>
+
+  <main>
+    <section class="view is-visible" id="view-index" data-view-panel="index">
+      <div class="issue-strip reveal">
+        <span>ISSUE 001</span>
+        <span>SEP. 2026</span>
+        <span>SHANGHAI / TOKYO</span>
+      </div>
+      <section class="hero reveal delay-1" aria-labelledby="heroTitle">
+        <img src="assets/hero-street.jpg" alt="雨后的安静街道与骑行者">
+        <div class="hero-copy">
+          <p class="kicker">A quiet record of ordinary days</p>
+          <h1 id="heroTitle">雨停以前，<br>街道先安静下来</h1>
+          <p>关于通勤、微雨与那些没有被特别记住的日常。</p>
+          <button class="text-action" data-open-story="quiet-rain">
+            阅读本期专题
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <span class="hero-index">01—12</span>
+      </section>
+
+      <section class="editorial-section reveal delay-2">
+        <div class="section-heading">
+          <p>SELECTED STORY</p>
+          <h2>本期影像</h2>
+          <span>日常并不需要被解释，只需要被认真看见。</span>
+        </div>
+        <div class="story-grid">
+          <button class="story-image tall" data-open-story="quiet-rain">
+            <img src="assets/rain-alley.jpg" alt="雨巷中撑透明伞的人">
+            <span>01 / 雨巷</span>
+          </button>
+          <div class="story-text">
+            <span class="vertical-label">ORDINARY OBSERVATION</span>
+            <p class="story-number">STORY 01</p>
+            <h3>雨声落在城市背面</h3>
+            <p>下午四点，商店还没有亮灯。有人撑伞穿过巷子，鞋底把水面切成短暂的波纹。</p>
+            <dl>
+              <div><dt>DATE</dt><dd>2026.09.11</dd></div>
+              <div><dt>PLACE</dt><dd>京都 · 西阵</dd></div>
+              <div><dt>CAMERA</dt><dd>35mm / ISO 400</dd></div>
+            </dl>
+            <button class="outline-action" data-open-story="quiet-rain">打开摄影故事</button>
+          </div>
+          <button class="story-image wide" data-lightbox="assets/train-dusk.jpg">
+            <img src="assets/train-dusk.jpg" alt="黄昏列车窗外的城市">
+            <span>02 / 归途</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="notes-preview reveal">
+        <div class="section-heading compact">
+          <p>DAILY NOTES</p>
+          <h2>日常片段</h2>
+          <button class="text-action nav-link" data-view="notes">查看全部</button>
+        </div>
+        <div class="notes-grid" id="homeNotes"></div>
+      </section>
+    </section>
+
+    <section class="view" id="view-stories" data-view-panel="stories">
+      <div class="page-intro">
+        <p>STORIES / 影像专题</p>
+        <h1>将一次行走，<br>整理成一段可以重读的时间。</h1>
+      </div>
+      <div class="story-list" id="storyList"></div>
+    </section>
+
+    <section class="view" id="view-notes" data-view-panel="notes">
+      <div class="page-intro">
+        <p>NOTES / 日常片段</p>
+        <h1>一张照片，<br>一句尚未展开的话。</h1>
+      </div>
+      <div class="notes-wall" id="notesWall"></div>
+    </section>
+
+    <section class="view" id="view-archive" data-view-panel="archive">
+      <div class="page-intro archive-intro">
+        <div>
+          <p>ARCHIVE / 时间归档</p>
+          <h1>按照时间，<br>重新经过那些地方。</h1>
+        </div>
+        <div class="filter-row" role="group" aria-label="归档筛选">
+          <button class="filter is-active" data-filter="all">全部</button>
+          <button class="filter" data-filter="城市日常">城市日常</button>
+          <button class="filter" data-filter="通勤">通勤</button>
+          <button class="filter" data-filter="旅行">旅行</button>
+        </div>
+      </div>
+      <div class="archive-list" id="archiveList"></div>
+      <p class="empty-state" id="archiveEmpty" hidden>这个分类还没有内容。</p>
+    </section>
+
+    <section class="view" id="view-about" data-view-panel="about">
+      <div class="about-layout">
+        <div class="about-mark">余<br>白</div>
+        <article>
+          <p class="kicker">ABOUT THE AUTHOR</p>
+          <h1>我记录的不是远方，<br>而是每天经过的地方。</h1>
+          <p>我是一名 UX/UI 设计师，也是一名日常观察者。设计让我不断追问事物为何如此，摄影则提醒我，有些答案不需要被立即说清。</p>
+          <p>这里收集通勤路上的光、雨后的街道、陌生人的背影，以及那些看似普通却值得停留几秒的瞬间。</p>
+          <div class="about-meta">
+            <span>BASED IN SHANGHAI</span>
+            <span>AVAILABLE FOR COLLABORATION</span>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 YOHAKU PHOTO JOURNAL</span>
+    <span>PHOTOGRAPHY / NOTES / DAILY LIFE</span>
+  </footer>
+
+  <dialog class="story-dialog" id="storyDialog" aria-labelledby="storyDialogTitle">
+    <button class="dialog-close" data-close-dialog aria-label="关闭专题">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <article id="storyReader"></article>
+  </dialog>
+
+  <dialog class="lightbox" id="lightbox" aria-label="图片预览">
+    <button class="dialog-close light" data-close-lightbox aria-label="关闭图片">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <img id="lightboxImage" alt="放大的摄影作品">
+  </dialog>
+
+  <aside class="studio" id="studio" aria-hidden="true">
+    <div class="studio-head">
+      <div><span>STUDIO</span><h2>新建一条记录</h2></div>
+      <button class="icon-button" id="studioClose" aria-label="关闭发布台">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <form id="publishForm" novalidate>
+      <label>内容类型
+        <select id="postType"><option>摄影专题</option><option>日常片段</option></select>
+      </label>
+      <label>标题
+        <input id="postTitle" type="text" placeholder="例如：雨声落在城市背面">
+        <span class="field-error" id="titleError"></span>
+      </label>
+      <label>记录
+        <textarea id="postBody" rows="6" placeholder="写下这组照片发生时，你记住了什么。"></textarea>
+      </label>
+      <div class="mock-upload">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 21h14"/></svg>
+        <span>拖入照片或选择文件</span>
+        <small>原型中仅模拟上传状态</small>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="outline-action" id="saveDraft">保存草稿</button>
+        <button type="submit" class="solid-action">预览发布</button>
+      </div>
+    </form>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
