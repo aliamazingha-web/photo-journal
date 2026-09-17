@@ -574,6 +574,7 @@ dialog::backdrop { background: rgba(31,33,30,.72); backdrop-filter: blur(5px); }
   .page-intro h1, .about-layout h1 { font-size: 38px; }
   .story-row { grid-template-columns: 40px 1fr; gap: 14px; }
   .story-row img { grid-column: 1 / -1; height: 220px; }
+  .story-row > span:not(.num) { grid-column: 1 / -1; }
   .story-row time { display: none; }
   .archive-item { grid-template-columns: 64px 1fr; gap: 10px; }
   .archive-category { display: none; }
