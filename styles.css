@@ -221,6 +221,9 @@ main { min-height: calc(100vh - 160px); }
 .section-title-stack h2 {
   font: 500 38px/1.1 var(--display);
 }
+.section-title-stack p {
+  margin-left: 4px;
+}
 .section-heading > span,
 .section-heading > .text-action {
   grid-column: 2;
