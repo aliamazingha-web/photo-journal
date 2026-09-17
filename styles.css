@@ -307,7 +307,7 @@ main { min-height: calc(100vh - 160px); }
   grid-template-rows: auto auto auto;
   align-self: start;
   align-content: start;
-  gap: 14px;
+  gap: 0;
   border: 0;
   background: transparent;
   text-align: left;
@@ -315,8 +315,8 @@ main { min-height: calc(100vh - 160px); }
 }
 .note-item img { aspect-ratio: 4 / 3; object-fit: cover; filter: saturate(.78); }
 .note-item:nth-child(2n) img { aspect-ratio: 3 / 4; }
-.note-item time { color: var(--muted); font-size: 10px; letter-spacing: .12em; }
-.note-item p { margin: 0; line-height: 1.8; }
+.note-item time { margin-top: 14px; color: var(--muted); font-size: 10px; letter-spacing: .12em; }
+.note-item p { margin: 7px 0 0; line-height: 1.8; }
 
 .page-intro {
   min-height: 48vh;
@@ -561,7 +561,15 @@ dialog::backdrop { background: rgba(31,33,30,.72); backdrop-filter: blur(5px); }
   .story-image.wide { grid-column: auto; }
   .story-text { padding: 16px 0 32px; }
   .vertical-label { display: none; }
-  .notes-grid, .notes-wall { grid-template-columns: 1fr 1fr; gap: 28px 12px; }
+  .notes-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 0 12px;
+  }
+  .notes-grid .note-item:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .notes-grid .note-item:nth-child(2) { grid-column: 2; grid-row: 1 / span 2; }
+  .notes-grid .note-item:nth-child(3) { grid-column: 1; grid-row: 2; margin-top: 32px; }
+  .notes-wall { grid-template-columns: 1fr 1fr; gap: 32px 12px; }
   .notes-wall .note-item:nth-child(n) { margin-top: 0; }
   .page-intro, .archive-intro { min-height: 42vh; grid-template-columns: 1fr; padding: 48px 0 36px; }
   .page-intro h1, .about-layout h1 { font-size: 38px; }
