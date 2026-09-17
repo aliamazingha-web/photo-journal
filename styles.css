@@ -361,43 +361,25 @@ main { min-height: calc(100vh - 160px); }
 .about-layout {
   min-height: calc(100vh - 180px);
   display: grid;
-  grid-template-columns: .72fr 1.28fr;
+  grid-template-columns: .7fr 1.3fr;
   align-items: center;
-  gap: 7vw;
+  gap: 8vw;
 }
 .about-mark {
   display: grid;
   align-items: center;
   justify-content: center;
   justify-items: center;
-  gap: 8px;
-  padding-left: 0;
+  gap: clamp(12px, 1vw, 20px);
+  padding-left: min(6vw, 80px);
   color: var(--ink);
 }
 .about-char {
   display: block;
   color: var(--ink);
-  font: 500 clamp(120px, 16vw, 238px)/.8 "STKaiti", "KaiTi", var(--display);
+  font: 500 clamp(104px, 17vw, 246px)/.82 "STKaiti", "KaiTi", var(--display);
   transform: scaleX(.88);
   transform-origin: center;
-}
-.about-roman {
-  width: min(100%, 330px);
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 18px;
-  margin: 6px 0 10px;
-  color: var(--ink);
-  font: 400 15px/1 var(--display);
-  letter-spacing: .26em;
-}
-.about-roman span:first-child { text-align: right; }
-.about-roman span:last-child { text-align: left; }
-.about-roman i {
-  color: var(--muted);
-  font-style: normal;
-  letter-spacing: .4em;
 }
 .about-layout article { max-width: 760px; }
 .about-layout article > p:not(.kicker) { max-width: 620px; margin: 30px 0 0; color: var(--muted); line-height: 2; }
@@ -534,7 +516,6 @@ dialog::backdrop { background: rgba(31,33,30,.72); backdrop-filter: blur(5px); }
   .about-layout { grid-template-columns: 1fr; padding: 48px 0; }
   .about-mark { padding: 0; }
   .about-char { font-size: 120px; }
-  .about-roman { width: 250px; }
   .about-meta { flex-direction: column; gap: 8px; }
   footer { flex-direction: column; gap: 8px; }
   .reader-body { padding: 56px 20px 64px; }
