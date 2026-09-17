@@ -59,7 +59,7 @@ img { display: block; width: 100%; }
   align-items: center;
   padding: 0 var(--page-gutter);
   border-bottom: 1px solid var(--line);
-  background: rgba(244,241,233,.94);
+  background: var(--ground);
   backdrop-filter: blur(12px);
 }
 .brand {
