@@ -315,8 +315,8 @@ main { min-height: calc(100vh - 160px); }
 }
 .note-item img { aspect-ratio: 4 / 3; object-fit: cover; filter: saturate(.78); }
 .note-item:nth-child(2n) img { aspect-ratio: 3 / 4; }
-.note-item time { margin-top: 14px; color: var(--muted); font-size: 10px; letter-spacing: .12em; }
-.note-item p { margin: 7px 0 0; line-height: 1.8; }
+.note-item p { margin: 14px 0 0; line-height: 1.8; }
+.note-item time { margin-top: 7px; color: var(--muted); font-size: 10px; letter-spacing: .12em; }
 
 .page-intro {
   min-height: 48vh;
@@ -335,7 +335,7 @@ main { min-height: calc(100vh - 160px); }
   grid-template-columns: 70px 1fr 1.2fr 120px;
   align-items: center;
   gap: 30px;
-  padding: 32px 24px 32px 0;
+  padding: 32px 0;
   border: 0;
   border-bottom: 1px solid var(--divider);
   background: transparent;

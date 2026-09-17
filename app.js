@@ -42,8 +42,8 @@
     return `
       <button class="note-item" data-lightbox="${note.image}" aria-label="查看 ${escapeHTML(note.date)} 的照片">
         <img src="${note.image}" alt="${escapeHTML(note.text)}">
-        <time>${escapeHTML(note.date)}</time>
         <p>${escapeHTML(note.text)}</p>
+        <time>${escapeHTML(note.date)}</time>
       </button>
     `;
   }
