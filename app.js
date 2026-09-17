@@ -285,10 +285,26 @@
         renderArchive();
       });
     });
-    $("#menuToggle").addEventListener("click", () => {
-      const menu = $("#mobileNav");
+    const menu = $("#mobileNav");
+    const menuToggle = $("#menuToggle");
+    const closeMobileMenu = () => {
+      menu.classList.remove("is-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+    };
+
+    menuToggle.addEventListener("click", () => {
       const open = menu.classList.toggle("is-open");
-      $("#menuToggle").setAttribute("aria-expanded", String(open));
+      menuToggle.setAttribute("aria-expanded", String(open));
+    });
+    document.addEventListener("pointerdown", (event) => {
+      if (menu.classList.contains("is-open")
+        && !menu.contains(event.target)
+        && !menuToggle.contains(event.target)) {
+        closeMobileMenu();
+      }
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMobileMenu();
     });
     $$("[data-close-dialog]").forEach((button) => {
       button.addEventListener("click", () => $("#storyDialog").close());
