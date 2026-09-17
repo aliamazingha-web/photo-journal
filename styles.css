@@ -370,20 +370,49 @@ main { min-height: calc(100vh - 160px); }
   align-items: center;
   justify-content: center;
   justify-items: center;
-  gap: clamp(12px, 1vw, 20px);
+  gap: clamp(4px, .6vw, 10px);
   padding-left: min(6vw, 80px);
-  color: var(--ink);
+  color: #77786f;
 }
 .about-char {
+  position: relative;
   display: block;
-  color: var(--muted);
-  font: 400 clamp(112px, 17vw, 246px)/.8 "FZKai-Z03", "Kaiti SC", "STKaiti", "KaiTi", var(--display);
+  width: 1em;
+  height: .9em;
+  color: transparent !important;
+  font: 400 clamp(112px, 17vw, 246px)/.82 "FZKai-Z03", "Kaiti SC", "STKaiti", "KaiTi", var(--display);
   font-feature-settings: "palt";
-  transform: scaleX(.8) rotate(-1deg);
+}
+.about-char > span,
+.about-char::before,
+.about-char::after {
+  position: absolute;
+  inset: 0;
+  display: block;
+  color: #77786f !important;
   transform-origin: center;
 }
-.about-char:nth-child(2) {
-  transform: scaleX(.8) rotate(1deg);
+.about-char::before,
+.about-char::after {
+  content: attr(data-char);
+}
+.about-char::before {
+  clip-path: inset(0 0 62% 0);
+  transform: translateX(-.045em) scaleX(.82) rotate(-1.5deg);
+}
+.about-char > span {
+  clip-path: inset(30% 0 28% 0);
+  transform: translateX(.012em) scaleX(.82);
+}
+.about-char::after {
+  clip-path: inset(61% 0 0 0);
+  transform: translateX(.055em) scaleX(.82) rotate(1.2deg);
+}
+.about-char:nth-child(2)::before {
+  transform: translateX(.035em) scaleX(.82) rotate(1deg);
+}
+.about-char:nth-child(2)::after {
+  transform: translateX(-.04em) scaleX(.82) rotate(-1.3deg);
 }
 .about-layout article { max-width: 760px; }
 .about-layout article > p:not(.kicker) { max-width: 620px; margin: 30px 0 0; color: var(--muted); line-height: 2; }
