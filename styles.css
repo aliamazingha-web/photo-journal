@@ -335,7 +335,7 @@ main { min-height: calc(100vh - 160px); }
   grid-template-columns: 70px 1fr 1.2fr 120px;
   align-items: center;
   gap: 30px;
-  padding: 32px 24px;
+  padding: 32px 24px 32px 0;
   border: 0;
   border-bottom: 1px solid var(--divider);
   background: transparent;
@@ -366,7 +366,7 @@ main { min-height: calc(100vh - 160px); }
   display: grid;
   grid-template-columns: 100px 100px 1fr 160px;
   gap: 24px;
-  align-items: baseline;
+  align-items: end;
   width: 100%;
   padding: 24px 0;
   border: 0;
