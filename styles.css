@@ -443,7 +443,7 @@ footer {
   display: flex;
   justify-content: space-between;
   padding: 28px var(--page-gutter);
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(185,184,174,.5);
   color: var(--muted);
   font-size: 9px;
   letter-spacing: .14em;
