@@ -296,6 +296,9 @@
       const open = menu.classList.toggle("is-open");
       menuToggle.setAttribute("aria-expanded", String(open));
     });
+    menu.addEventListener("pointerleave", (event) => {
+      if (event.pointerType === "mouse") closeMobileMenu();
+    });
     document.addEventListener("pointerdown", (event) => {
       if (menu.classList.contains("is-open")
         && !menu.contains(event.target)
@@ -303,6 +306,9 @@
         closeMobileMenu();
       }
     });
+    window.addEventListener("scroll", () => {
+      if (menu.classList.contains("is-open")) closeMobileMenu();
+    }, { passive: true });
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") closeMobileMenu();
     });
