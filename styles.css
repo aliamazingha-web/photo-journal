@@ -364,7 +364,7 @@ main { min-height: calc(100vh - 160px); }
   display: grid;
   grid-template-columns: 100px 100px 1fr 160px;
   gap: 24px;
-  align-items: end;
+  align-items: center;
   width: 100%;
   padding: 24px 0;
   border: 0;
@@ -576,9 +576,17 @@ dialog::backdrop { background: rgba(31,33,30,.72); backdrop-filter: blur(5px); }
   .story-row img { grid-column: 1 / -1; height: 220px; }
   .story-row > span:not(.num) { grid-column: 1 / -1; }
   .story-row time { display: none; }
-  .archive-item { grid-template-columns: 64px 1fr; gap: 10px; }
+  .archive-item {
+    grid-template-columns: 40px minmax(0, 1fr) auto;
+    gap: 12px;
+    align-items: center;
+  }
   .archive-category { display: none; }
-  .archive-date { justify-self: start; }
+  .archive-date {
+    justify-self: end;
+    text-align: right;
+    white-space: nowrap;
+  }
   .archive-title { font-size: 22px; }
   .about-layout { grid-template-columns: 1fr; padding: 48px 0; }
   .about-mark { padding: 0; }
