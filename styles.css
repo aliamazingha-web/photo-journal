@@ -361,7 +361,7 @@ main { min-height: calc(100vh - 160px); }
   color: var(--muted);
 }
 .filter:hover, .filter:focus-visible, .filter.is-active { color: var(--white); background: var(--sage); border-color: var(--sage); outline: none; }
-.archive-list { padding-top: 32px; }
+.archive-list { padding-top: 0; }
 .archive-item {
   display: grid;
   grid-template-columns: 100px 100px 1fr 160px;
