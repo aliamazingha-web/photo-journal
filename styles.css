@@ -396,6 +396,12 @@ main { min-height: calc(100vh - 160px); }
   padding-left: min(6vw, 80px);
   color: var(--brand-mark);
 }
+.about-mark-image {
+  display: block;
+  width: min(20vw, 280px);
+  height: auto;
+  object-fit: contain;
+}
 .about-char {
   position: relative;
   display: block;
@@ -582,6 +588,7 @@ dialog::backdrop { background: rgba(31,33,30,.72); backdrop-filter: blur(5px); }
   .archive-title { font-size: 22px; }
   .about-layout { grid-template-columns: 1fr; padding: 48px 0; }
   .about-mark { padding: 0; }
+  .about-mark-image { width: 150px; }
   .about-char { font-size: 120px; }
   .about-meta { flex-direction: column; gap: 8px; }
   footer { flex-direction: column; gap: 8px; }
