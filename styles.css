@@ -540,6 +540,11 @@ dialog::backdrop { background: rgba(31,33,30,.72); backdrop-filter: blur(5px); }
   .site-header { height: 68px; }
   .brand-en { display: none; }
   .mobile-nav { top: 68px; grid-template-columns: 1fr 1fr; }
+  .mobile-nav .nav-link {
+    width: 100%;
+    justify-self: start;
+    text-align: left;
+  }
   .view { padding-bottom: 64px; }
   .issue-strip span:last-child { display: none; }
   .hero { min-height: 76svh; }
