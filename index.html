@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="个人影像刊物交互原型">
   <title>余白｜个人影像刊物</title>
-  <link rel="stylesheet" href="styles.css?v=8">
+  <link rel="stylesheet" href="styles.css?v=9">
   <script src="mock.js" defer></script>
   <script src="api.js" defer></script>
   <script src="app.js" defer></script>
@@ -104,7 +104,10 @@
             <h2>日常片段</h2>
             <p>DAILY NOTES</p>
           </div>
-          <button class="text-action nav-link" data-view="notes">查看全部</button>
+          <button class="text-action nav-link" data-view="notes">
+            查看全部
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
         </div>
         <div class="notes-grid" id="homeNotes"></div>
       </section>
