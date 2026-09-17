@@ -541,8 +541,8 @@ dialog::backdrop { background: rgba(31,33,30,.72); backdrop-filter: blur(5px); }
   .brand-en { display: none; }
   .mobile-nav { top: 68px; grid-template-columns: 1fr 1fr; }
   .mobile-nav .nav-link {
-    width: 100%;
-    justify-self: start;
+    width: 6.5em;
+    justify-self: center;
     text-align: left;
   }
   .view { padding-bottom: 64px; }
